@@ -1,0 +1,65 @@
+.App {
+  min-height: 100vh;
+  background: #F5F4F2;
+  color: #1A1A2E;
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+}
+
+html { scroll-behavior: smooth; }
+
+@keyframes word-slide-in {
+  0% { transform: translateY(60px); opacity: 0; }
+  15% { transform: translateY(0); opacity: 1; }
+  85% { transform: translateY(0); opacity: 1; }
+  100% { transform: translateY(-60px); opacity: 0; }
+}
+.rotating-word {
+  display: inline-flex; align-items: center; gap: 0.5rem;
+  animation: word-slide-in 2.4s ease-in-out;
+}
+.rotating-word-wrapper {
+  display: inline-flex; vertical-align: middle; overflow: hidden;
+  height: 1.1em; align-items: center;
+}
+
+.pill-btn { border-radius: 9999px; transition: transform 0.2s ease, box-shadow 0.2s ease, background 0.2s ease; }
+.pill-btn:hover { transform: translateY(-1px); box-shadow: 0 8px 20px rgba(0,0,0,0.12); }
+
+.feature-card { transition: transform 0.25s ease, box-shadow 0.25s ease; }
+.feature-card:hover { transform: translateY(-4px); box-shadow: 0 18px 40px rgba(0,0,0,0.08); }
+
+@keyframes marquee {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+.marquee-track { animation: marquee 30s linear infinite; }
+
+.logo-gradient {
+  background: linear-gradient(90deg, #1A1A2E 0%, #4A5568 50%, #1A1A2E 100%);
+  -webkit-background-clip: text; background-clip: text; color: transparent;
+  font-weight: 800; letter-spacing: -0.02em;
+}
+
+.noise-bg {
+  background-image:
+    radial-gradient(circle at 30% 20%, rgba(196,184,210,0.35) 0%, transparent 40%),
+    radial-gradient(circle at 80% 60%, rgba(180,200,190,0.25) 0%, transparent 45%);
+}
+
+.section-pad { padding-top: 6rem; padding-bottom: 6rem; }
+@media (max-width: 768px) { .section-pad { padding-top: 4rem; padding-bottom: 4rem; } }
+
+input[type='range'].neutral-slider {
+  -webkit-appearance: none; appearance: none;
+  height: 6px; background: #E5E3E0; border-radius: 9999px; outline: none;
+}
+input[type='range'].neutral-slider::-webkit-slider-thumb {
+  -webkit-appearance: none; appearance: none;
+  width: 22px; height: 22px; background: #1A1A2E;
+  border: 4px solid #FFFFFF; border-radius: 50%; cursor: pointer;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+}
+input[type='range'].neutral-slider::-moz-range-thumb {
+  width: 22px; height: 22px; background: #1A1A2E;
+  border: 4px solid #FFFFFF; border-radius: 50%; cursor: pointer;
+}

@@ -1,0 +1,50 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Instrument+Serif&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body {
+  margin: 0;
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background: #F5F4F2;
+  color: #1A1A2E;
+}
+
+.font-serif-display {
+  font-family: 'Instrument Serif', serif;
+  font-weight: 400;
+  letter-spacing: -0.01em;
+}
+
+@layer base {
+  :root {
+    --background: 40 14% 96%;
+    --foreground: 240 27% 14%;
+    --card: 0 0% 100%;
+    --card-foreground: 240 27% 14%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 240 27% 14%;
+    --primary: 240 27% 14%;
+    --primary-foreground: 0 0% 98%;
+    --secondary: 40 8% 90%;
+    --secondary-foreground: 240 27% 14%;
+    --muted: 40 8% 92%;
+    --muted-foreground: 240 10% 40%;
+    --accent: 40 8% 90%;
+    --accent-foreground: 240 27% 14%;
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 0 0% 98%;
+    --border: 40 8% 86%;
+    --input: 40 8% 86%;
+    --ring: 240 27% 14%;
+    --radius: 1rem;
+  }
+}
+
+@layer base {
+  * { @apply border-border; }
+  body { @apply bg-background text-foreground; }
+}
