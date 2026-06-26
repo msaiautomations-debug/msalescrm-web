@@ -1,0 +1,17 @@
+{
+  "name": "msalesweb",
+  "version": "1.0.0",
+  "private": true,
+  "workspaces": [
+    "Frontend",
+    "Backend"
+  ],
+  "scripts": {
+    "install:all": "npm install",
+    "dev": "npm run dev --workspaces --if-present",
+    "build": "npm run build --workspaces --if-present",
+    "test": "npm run test --workspaces --if-present",
+    "dev:frontend": "npm run dev --workspace Frontend",
+    "build:frontend": "npm run build --workspace Frontend"
+  }
+}
