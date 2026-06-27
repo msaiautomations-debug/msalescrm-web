@@ -77,16 +77,16 @@ export const eligibilityCriteria = [
 export const useCases = [
   { id: 0, icon: 'TrendingUp', title: 'Pipeline growth',
     description: 'Build a healthier pipeline with AI-qualified leads and automated nurture sequences that convert.',
-    image: 'https://images.pexels.com/photos/32074781/pexels-photo-32074781.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940' },
+    image: '/pipeline-growth.webp' },
   { id: 1, icon: 'Package', title: 'Deal management',
     description: 'Track every deal across customizable stages. Drag-and-drop boards that mirror how your team actually sells.',
-    image: 'https://images.pexels.com/photos/97080/pexels-photo-97080.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940' },
+    image: '/deal-management.webp' },
   { id: 2, icon: 'BarChart3', title: 'Outreach campaigns',
     description: 'Multichannel campaigns across email, LinkedIn, and SMS — personalized at scale by AI.',
-    image: 'https://images.pexels.com/photos/7947702/pexels-photo-7947702.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940' },
+    image: '/outreach-campaigns.webp' },
   { id: 3, icon: 'Percent', title: 'Revenue forecasting',
     description: 'Predict quarterly revenue with 95% accuracy using historical patterns and real-time signals.',
-    image: 'https://images.pexels.com/photos/8353839/pexels-photo-8353839.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940' },
+    image: '/revenue-forecasting.webp' },
 ];
 
 export const appFeatures = [
@@ -102,5 +102,5 @@ export const navLinks = [
   { label: 'Pricing', href: '#pricing' },
 ];
 
-export const heroImage = 'https://images.pexels.com/photos/39559/ipad-mockup-apple-business-39559.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940';
-export const appImage = 'https://images.pexels.com/photos/15092/pexels-photo.jpg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940';
+export const heroImage = '/hero-page.webp';
+export const appImage = '/features.webp';

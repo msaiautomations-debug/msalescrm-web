@@ -17,9 +17,7 @@ export default function Navigation() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-4">
         <nav className={`relative flex items-center justify-between rounded-full px-5 py-3 transition-all duration-300 ${scrolled ? 'bg-white/85 backdrop-blur-md shadow-sm' : 'bg-white/60 backdrop-blur'}`}>
           <a href="#" className="flex items-center gap-2">
-            <div className="w-8 h-8 rounded-lg bg-[#1A1A2E] flex items-center justify-center">
-              <span className="text-white font-bold text-sm">M</span>
-            </div>
+            <img src="/m-logo.svg" alt="MSales CRM" className="h-9 w-9 object-contain" />
             <span className="text-[#1A1A2E] font-bold text-lg tracking-tight">MSales <span className="font-medium text-[#5A5A6E]">CRM</span></span>
           </a>
 
