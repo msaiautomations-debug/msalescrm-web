@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import { Link } from 'react-router-dom';
 import { TrendingUp, Users, Briefcase, Rocket, CalendarClock, Sparkles } from 'lucide-react';
 import { rotatingWords, heroImage } from '../mock';
 
@@ -43,9 +44,9 @@ export default function Hero() {
             <button className="pill-btn px-7 py-3.5 text-sm font-semibold bg-[#1A1A2E] text-white hover:bg-[#2A2A3E] inline-flex items-center justify-center gap-2">
               Start free trial
             </button>
-            <a href="/demo" className="pill-btn px-7 py-3.5 text-sm font-semibold bg-white text-[#1A1A2E] border border-[#E5E3E0] inline-flex items-center justify-center gap-2">
+            <Link to="/demo" className="pill-btn px-7 py-3.5 text-sm font-semibold bg-white text-[#1A1A2E] border border-[#E5E3E0] inline-flex items-center justify-center gap-2">
               Book a demo <CalendarClock className="w-4 h-4" />
-            </a>
+            </Link>
           </div>
 
           <div className="mt-14 lg:mt-20 w-full relative">

@@ -1,19 +1,48 @@
-import 'dotenv/config';
+import { fileURLToPath } from 'node:url';
+import path from 'node:path';
+import { config } from 'dotenv';
 import express from 'express';
 import cors from 'cors';
 import nodemailer from 'nodemailer';
 
+const __dirname = path.dirname(fileURLToPath(import.meta.url));
+config({ path: path.join(__dirname, '.env') });
+
 const app = express();
 const PORT = process.env.PORT || 5050;
-const DEMO_RECIPIENT = 'msaiautomations@gmail.com';
+const DEMO_RECIPIENT = process.env.DEMO_RECIPIENT || 'msaiautomations@gmail.com';
+const DEFAULT_FRONTEND_ORIGINS = ['http://127.0.0.1:5173', 'http://localhost:5173'];
+const FRONTEND_ORIGINS = (process.env.FRONTEND_ORIGIN || '')
+  .split(',')
+  .map((origin) => origin.trim())
+  .filter(Boolean);
+const allowedOrigins = FRONTEND_ORIGINS.length ? FRONTEND_ORIGINS : DEFAULT_FRONTEND_ORIGINS;
 
-app.use(cors({ origin: process.env.FRONTEND_ORIGIN || 'http://127.0.0.1:5173' }));
+app.use(cors({
+  origin(origin, callback) {
+    if (!origin || allowedOrigins.includes(origin)) {
+      callback(null, true);
+      return;
+    }
+
+    callback(new Error('Not allowed by CORS'));
+  },
+}));
 app.use(express.json({ limit: '1mb' }));
 
 const requiredFields = ['name', 'email', 'company', 'teamSize', 'crmNeed', 'callTime'];
 
 function clean(value) {
   return String(value || '').trim();
+}
+
+function escapeHtml(value) {
+  return clean(value)
+    .replace(/&/g, '&amp;')
+    .replace(/</g, '&lt;')
+    .replace(/>/g, '&gt;')
+    .replace(/"/g, '&quot;')
+    .replace(/'/g, '&#039;');
 }
 
 function createTransporter() {
@@ -79,14 +108,14 @@ app.post('/api/demo-request', async (req, res) => {
       html: `
         <div style="font-family: Arial, sans-serif; color: #1A1A2E; line-height: 1.5;">
           <h2>New MSales CRM demo request</h2>
-          <p><strong>Name:</strong> ${details.name}</p>
-          <p><strong>Work email:</strong> ${details.email}</p>
-          <p><strong>Phone:</strong> ${details.phone || 'Not provided'}</p>
-          <p><strong>Company:</strong> ${details.company}</p>
-          <p><strong>Sales team size:</strong> ${details.teamSize}</p>
-          <p><strong>CRM need:</strong> ${details.crmNeed}</p>
-          <p><strong>Preferred call time:</strong> ${details.callTime}</p>
-          <p><strong>Notes:</strong> ${details.notes || 'None'}</p>
+          <p><strong>Name:</strong> ${escapeHtml(details.name)}</p>
+          <p><strong>Work email:</strong> ${escapeHtml(details.email)}</p>
+          <p><strong>Phone:</strong> ${escapeHtml(details.phone || 'Not provided')}</p>
+          <p><strong>Company:</strong> ${escapeHtml(details.company)}</p>
+          <p><strong>Sales team size:</strong> ${escapeHtml(details.teamSize)}</p>
+          <p><strong>CRM need:</strong> ${escapeHtml(details.crmNeed)}</p>
+          <p><strong>Preferred call time:</strong> ${escapeHtml(details.callTime)}</p>
+          <p><strong>Notes:</strong> ${escapeHtml(details.notes || 'None')}</p>
         </div>
       `,
     });
