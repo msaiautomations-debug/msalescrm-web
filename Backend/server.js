@@ -64,7 +64,7 @@ function createTransporter() {
 }
 
 app.get('/api/health', (_req, res) => {
-  res.json({ ok: true });
+  res.json({ ok: true, service: 'msales-backend', mailConfigured: Boolean(process.env.SMTP_HOST && process.env.SMTP_USER && process.env.SMTP_PASS) });
 });
 
 app.post('/api/demo-request', async (req, res) => {
@@ -122,8 +122,18 @@ app.post('/api/demo-request', async (req, res) => {
 
     res.json({ ok: true, message: 'Demo request sent.' });
   } catch (error) {
-    console.error('Demo request mail failed:', error);
-    res.status(500).json({ ok: false, message: 'Could not send the demo request right now.' });
+    console.error('Demo request mail failed:', {
+      message: error.message,
+      code: error.code,
+      command: error.command,
+      response: error.response,
+    });
+
+    const message = process.env.NODE_ENV === 'production'
+      ? 'Could not send the demo request right now.'
+      : `Could not send the demo request right now: ${error.message}`;
+
+    res.status(500).json({ ok: false, message });
   }
 });
 
