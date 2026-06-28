@@ -33,9 +33,9 @@ export default function Navigation() {
           </div>
 
           <div className="hidden lg:flex items-center gap-2">
-            <button className="pill-btn px-5 py-2 text-sm font-medium bg-white text-[#1A1A2E] border border-[#E5E3E0] hover:bg-[#F5F4F2]">
+            <a href="https://palegoldenrod-ape-296443.hostingersite.com/" className="pill-btn px-5 py-2 text-sm font-medium bg-white text-[#1A1A2E] border border-[#E5E3E0] hover:bg-[#F5F4F2]">
               Login
-            </button>
+            </a>
             <button className="pill-btn px-5 py-2 text-sm font-semibold bg-[#1A1A2E] text-white hover:bg-[#2A2A3E]">
               Start free trial
             </button>
@@ -52,7 +52,7 @@ export default function Navigation() {
               <a key={l.label} href={l.href} onClick={() => setOpen(false)} className="text-sm font-medium py-2">{l.label}</a>
             ))}
             <div className="flex gap-2 pt-2 border-t border-[#E5E3E0]">
-              <button className="flex-1 pill-btn px-4 py-2 text-sm border border-[#E5E3E0]">Login</button>
+              <a href="https://palegoldenrod-ape-296443.hostingersite.com/" className="flex-1 pill-btn px-4 py-2 text-sm border border-[#E5E3E0] text-center">Login</a>
               <button className="flex-1 pill-btn px-4 py-2 text-sm bg-[#1A1A2E] text-white">Start free</button>
             </div>
           </div>
