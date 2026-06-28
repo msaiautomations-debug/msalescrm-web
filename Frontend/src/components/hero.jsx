@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { TrendingUp, Users, Briefcase, Rocket, Calculator as CalcIcon, Sparkles } from 'lucide-react';
+import { TrendingUp, Users, Briefcase, Rocket, CalendarClock, Sparkles } from 'lucide-react';
 import { rotatingWords, heroImage } from '../mock';
 
 const iconMap = { TrendingUp, Users, Briefcase, Rocket };
@@ -43,8 +43,8 @@ export default function Hero() {
             <button className="pill-btn px-7 py-3.5 text-sm font-semibold bg-[#1A1A2E] text-white hover:bg-[#2A2A3E] inline-flex items-center justify-center gap-2">
               Start free trial
             </button>
-            <a href="#calculator" className="pill-btn px-7 py-3.5 text-sm font-semibold bg-white text-[#1A1A2E] border border-[#E5E3E0] inline-flex items-center justify-center gap-2">
-              ROI Calculator <CalcIcon className="w-4 h-4" />
+            <a href="/demo" className="pill-btn px-7 py-3.5 text-sm font-semibold bg-white text-[#1A1A2E] border border-[#E5E3E0] inline-flex items-center justify-center gap-2">
+              Book a demo <CalendarClock className="w-4 h-4" />
             </a>
           </div>
 

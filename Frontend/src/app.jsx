@@ -11,6 +11,8 @@ import Calculator from './components/calculator';
 import UseCases from './components/usecases';
 import AppFeatures from './components/appfeatures';
 import Footer from './components/footer';
+import DemoPage from './components/demo-page';
+import InfoPage from './components/info-page';
 
 const Landing = () => (
   <div className="App">
@@ -32,6 +34,12 @@ function App() {
     <BrowserRouter>
       <Routes>
         <Route path="/" element={<Landing />} />
+        <Route path="/demo" element={<DemoPage />} />
+        <Route path="/privacy" element={<InfoPage type="privacy" />} />
+        <Route path="/terms" element={<InfoPage type="terms" />} />
+        <Route path="/blog" element={<InfoPage type="blog" />} />
+        <Route path="/about" element={<InfoPage type="about" />} />
+        <Route path="/faqs" element={<InfoPage type="faqs" />} />
       </Routes>
     </BrowserRouter>
   );
