@@ -96,7 +96,7 @@ export const appFeatures = [
 ];
 
 export const navLinks = [
-  { label: 'Calculator', href: '#calculator' },
+  { label: 'Features', href: '#features' },
   { label: 'How it works', href: '#how-it-works' },
   { label: 'Testimonials', href: '#testimonials' },
   { label: 'Pricing', href: '#pricing' },
